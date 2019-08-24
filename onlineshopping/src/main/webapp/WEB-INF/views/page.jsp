@@ -29,7 +29,9 @@
 </script>
 
 <!-- Bootstrap core CSS -->
-<link href="${css}//bootstrap.min.css" rel="stylesheet">
+<link href="${css}/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Readable Theme -->
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -37,37 +39,41 @@
 </head>
 
 <body>
-	<!-- Navigation -->
-	<div style="margin-bottom: 70px;">
+
+	<div class="wrapper">
+		<!-- Navigation -->
 		<%@include file="./shared/navbar.jsp"%>
+
+		<div class="content">
+
+			<!-- Page Content -->
+			<!-- Loads Home Page Content -->
+			<c:if test="${userClickHome }">
+				<%@include file="home.jsp"%>
+			</c:if>
+
+			<!-- Loads About Content -->
+			<c:if test="${userClickAbout }">
+				<%@include file="about.jsp"%>
+			</c:if>
+
+			<!-- Loads Contact Us Page Content -->
+			<c:if test="${userClickContact }">
+				<%@include file="contact.jsp"%>
+			</c:if>
+
+		</div>
+
+		<!-- Footer -->
+		<%@include file="./shared/footer.jsp"%>
+
+		<!-- Bootstrap core JavaScript -->
+		<script src="${js}/jquery.js"></script>
+		<script src="${js}/bootstrap.bundle.min.js"></script>
+
+		<!-- My Own Javascript File -->
+		<script src="${js}/myapp.js"></script>
 	</div>
-
-	<!-- Page Content -->
-	<c:if test="${userClickHome }">
-		<%@include file="home.jsp"%>
-	</c:if>
-
-	<!-- Page Content -->
-	<c:if test="${userClickAbout }">
-		<%@include file="about.jsp"%>
-	</c:if>
-
-
-	<!-- Page Content -->
-	<c:if test="${userClickContact }">
-		<%@include file="contact.jsp"%>
-	</c:if>
-
-
-	<!-- Footer -->
-	<%@include file="./shared/footer.jsp"%>
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/jquery.js"></script>
-	<script src="${js}/bootstrap.bundle.min.js"></script>
-
-	<!-- My Own Javascript File -->
-	<script src="${js}/myapp.js"></script>
 </body>
 
 </html>
